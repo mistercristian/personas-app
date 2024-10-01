@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Municipio extends Model
 {
     use HasFactory;
-    protected $table = "tb_municipio";
-    protected $primarykey="muni_code";
-    public $timestamps = false;
+    protected $table = 'tb_municipio';
+    protected $primaryKey = 'muni_codi'; // Indica que la clave primaria es muni_codi
+    public $incrementing = false; // Si el campo muni_codi no es auto incremental
+    public $timestamps = false; // Desactiva el manejo automático de created_at y updated_at
 }
