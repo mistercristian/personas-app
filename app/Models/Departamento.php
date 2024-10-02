@@ -9,7 +9,6 @@ class Departamento extends Model
 {
     use HasFactory;
     protected $table = "tb_departamento";
-    // Corregir el nombre de la propiedad
     protected $primaryKey = "depa_codi"; 
     public $timestamps = false;
     

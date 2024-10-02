@@ -8,9 +8,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Listado Municipios</title>
+    <title>Listado Paises</title>
   </head>
   <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         
@@ -22,7 +23,7 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="#">Municipios</a>
+              <a class="nav-link" href="{{route('paises.index')}}">Municipios</a>
             </li>
 
             <li class="nav-item">
@@ -30,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{route('paises.index')}}">Paises</a>
+              <a class="nav-link" href="#">Paises</a>
             </li>
             
           </ul>
@@ -45,28 +46,28 @@
     <!----- FINALIZA MENU----> 
 
     <div class="container">
-    <h1>Listado Municipios</h1>
+    <h1>Listado Paises</h1>
 
-    <a href="{{ route('municipios.create') }}" class="btn btn-success">Add</a>
+    <a href="{{ route('paises.create') }}" class="btn btn-success">Add</a>
     
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Code</th>
-            <th scope="col">Municipio</th>
-            <th scope="col">Departamento</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Capital</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-            @foreach ($municipios as $municipio)
+            @foreach ($paises as $pais)
           <tr>
-            <th scope="row">{{$municipio->muni_codi}}</th>
-            <td>{{$municipio->muni_nomb}}</td>
-            <td>{{$municipio->depa_nomb}}</td>
+            <th scope="row">{{$pais->pais_codi}}</th>
+            <td>{{$pais->pais_nomb}}</td>
+            <td>{{$pais->muni_nomb}}</td>
             <td>
-                <a href="{{route('municipios.edit',['municipio'=>$municipio->muni_codi])}}" class="btn btn-info">Editar</a>
-                <form action="{{route('municipios.destroy', ['municipio'=>$municipio->muni_codi])}}" method="POST" style="display: inline-block">
+                <a href="{{route('paises.edit',['pais'=>$pais->pais_codi])}}" class="btn btn-info">Editar</a>
+                <form action="{{route('paises.destroy', ['pais'=>$pais->pais_codi])}}" method="POST" style="display: inline-block">
                 @method('delete')
                 @csrf
                 <input class="btn btn-danger" type="submit" value="Delete">
