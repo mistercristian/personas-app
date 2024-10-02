@@ -68,10 +68,10 @@ class MunicipioController extends Controller
 
         //$municipio = Municipio::find($id);
         $municipio = Municipio::where('muni_codi', $id)->first();
-    $departamentos = DB::table('tb_departamento')
+        $departamentos = DB::table('tb_departamento')
         ->orderBy('depa_nomb')
         ->get();
-    return view('municipio.edit', ['municipio' => $municipio, 'departamentos' => $departamentos]);
+        return view('municipio.edit', ['municipio' => $municipio, 'departamentos' => $departamentos]);
     }
 
     /**
@@ -83,15 +83,15 @@ class MunicipioController extends Controller
         //$municipio = Municipio::find($id);
         $municipio = Municipio::where('muni_codi', $id)->first();
 
-    $municipio->muni_nomb = $request->name;
-    $municipio->depa_codi = $request->code;
-    $municipio->save();
+        $municipio->muni_nomb = $request->name;
+        $municipio->depa_codi = $request->code;
+        $municipio->save();
 
-    $municipios = DB::table('tb_municipio')
+        $municipios = DB::table('tb_municipio')
         ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
         ->select('tb_municipio.*', 'tb_departamento.depa_nomb')
         ->get();
-    return view('municipio.index', ['municipios' => $municipios]);
+        return view('municipio.index', ['municipios' => $municipios]);
     }
 
     /**
@@ -104,9 +104,9 @@ class MunicipioController extends Controller
         $municipio->delete();
     
         $municipios = DB::table('tb_municipio')
-            ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
-            ->select('tb_municipio.*', 'tb_departamento.depa_nomb')
-            ->get();
+        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
+        ->select('tb_municipio.*', 'tb_departamento.depa_nomb')
+        ->get();
         return view('municipio.index', ['municipios' => $municipios]);
 
 

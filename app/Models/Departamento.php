@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Municipio extends Model
+class Departamento extends Model
 {
     use HasFactory;
     protected $table = "tb_departamento";
-    protected $primarykey="depa_codi";
+    // Corregir el nombre de la propiedad
+    protected $primaryKey = "depa_codi"; 
     public $timestamps = false;
+    
 }
