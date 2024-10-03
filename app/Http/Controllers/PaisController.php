@@ -95,6 +95,7 @@ class PaisController extends Controller
 
         // Encuentra el país por su ID
           $pais = Pais::find($id);
+         //dd($pais);
 
     // Verifica si el país existe
          if (!$pais) {

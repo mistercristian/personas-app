@@ -13,6 +13,7 @@
   <body>
     <div class="container">
     <h1>Editar Pais</h1>
+    {{$pais->pais_codi}}
     <form method="POST" action="{{route('paises.update',['pais'=>$pais->pais_codi])}}">
         @method('put')
         @csrf
